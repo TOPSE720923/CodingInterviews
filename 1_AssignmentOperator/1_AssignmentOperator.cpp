@@ -62,7 +62,7 @@ void Test1()
 	str2.Print();	
 }
 
-// 赋值给自己
+// assign to yourself
 void Test2()
 {
 	const char* text = "Hello world";
@@ -71,7 +71,7 @@ void Test2()
 	str1.Print();
 }
 
-// 连续赋值
+// consecutive assignment
 void Test3()
 {
 	const char* text = "Hello world";
