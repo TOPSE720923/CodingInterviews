@@ -1,0 +1,1 @@
+this is the easiest version in C++ which has lots of drawbacks, i will modify and improve it later
