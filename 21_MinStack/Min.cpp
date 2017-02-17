@@ -1,5 +1,6 @@
 #include <iostream> 
 #include <stack>
+#include <assert.h> 
 using namespace std;
 
 //create a stack with min 
@@ -32,22 +33,26 @@ public:
 
 	void Pop()
 	{
+		assert(_min_stack.size() > 0 && _data_stack.size() > 0);
 		_min_stack.pop();
 		_data_stack.pop();
 	}
 
 	const T& Min() const
 	{
+		assert(_min_stack.size() > 0 && _data_stack.size() > 0);
 		return _min_stack.top();
 	}
 
 	T& Top()
 	{
+		assert(_min_stack.size() > 0 && _data_stack.size() > 0);
 		return _data_stack.top();
 	}
 
 	const T& Top() const
 	{
+		assert(_min_stack.size() > 0 && _data_stack.size() > 0);
 		return _data_stack.top();
 	}
 
