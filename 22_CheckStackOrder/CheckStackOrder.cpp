@@ -12,27 +12,11 @@ bool CheckStackOrder(const int *first, const int *second, int n)
 	if (first == nullptr && second == nullptr && n <= 0)
 		return false;
 	stack<int> s;
-	//find the pos in the first array according to the second[0]
-	int i = 0;
-	while (first[i] != second[0])
-	{
-		++i;
-		if (i == n)
-		{
-			//the two sequence don't match
-			return false;
-		}
-	}
 	int firstPos = 0;
-	while (firstPos <= i)
-	{
-		s.push(first[firstPos++]);
-	}
-
 	int secondPos = 0;
 	while (secondPos != n)
 	{
-		while (s.top() != second[secondPos])
+		while (s.empty() || s.top() != second[secondPos])
 		{
 			if (firstPos == n)
 				return false;
@@ -41,6 +25,7 @@ bool CheckStackOrder(const int *first, const int *second, int n)
 		s.pop();
 		++secondPos;
 	}
+	
 	return true;
 }
 
