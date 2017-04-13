@@ -69,3 +69,36 @@ public:
 	}
 };
 
+
+
+class Solution {
+public:
+	TreeNode* Convert(TreeNode* pRootOfTree)
+	{
+		if (pRootOfTree == NULL)
+			return NULL;
+  		TreeNode* root = pRootOfTree;
+        while (root && root->left)
+        {
+            root = root->left;
+        }
+        TreeNode* prev = NULL;
+		Convert(pRootOfTree, prev);
+		return root;
+	}
+    
+    void Convert(TreeNode* root, TreeNode*& prev)
+    {
+        if (root == NULL)
+            return;
+        Convert(root->left, prev);
+        
+        root->left = prev;
+        if (prev != NULL)
+            prev->right = root;
+        prev = root;
+        
+        Convert(root->right, prev);
+    }
+    
+};
