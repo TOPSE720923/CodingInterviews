@@ -4,31 +4,36 @@
 #include<algorithm>
 using namespace std;
 
+string ReverseSentence(string s) 
+{
+	reverse(s.begin(), s.end());
 
+	int size = s.size();
+	int beg = 0;
+	for (int end = 0; end <= size; ++end)
+	{
+		if (end == size)
+		{
+			reverse(s.begin() + beg, s.begin() + end);
+			break;
+		}
 
+		if (s[end] == ' ')
+		{
+			reverse(s.begin() + beg, s.begin() + end);
+			beg = ++end;
+		}
+	}
+
+	return s;
+}
 
 
 int main()
 {
 
 	string s = "i am happy";
-	//yppah ma i
-	reverse(s.begin(), s.end());
-	
-	string::iterator first = s.begin();
-	string::iterator second = s.begin();
-
-	//happy am i
-	while (second != s.end())
-	{
-		if (*second == ' ' || *second == '\0')
-		{
-			reverse(first, second);
-			second++;
-			first = second;
-		}
-		++second;
-	}
+	ReverseSentence(s); 
 	cout << s << endl; 
 
 	return 0;
