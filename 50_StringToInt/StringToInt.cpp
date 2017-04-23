@@ -53,11 +53,11 @@ int StrToInt(const string& str)
 			return 0;
 		}
 		//¿¼ÂÇÒç³ö
-//		if (isPositive && number > 0x7fffffff || !isPositive && number < (unsigned)0x80000000)
-//		{
-//			gStatus = inValid;
-//			return 0;
-//		}
+/* 		if (isPositive && number > 0x7fffffff || !isPositive && number < (signed)0x80000000)
+		{
+			gStatus = inValid;
+			return 0;
+		} */
 	}
 
 	if (!isPositive)
